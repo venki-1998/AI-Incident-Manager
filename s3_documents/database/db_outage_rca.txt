@@ -1,0 +1,20 @@
+Incident Title: Production Database Outage
+Date: 2025-10-12
+Region: US-East-1
+Service: RDS PostgreSQL
+Problem Summary:
+The production database instance became unresponsive due to high I/O wait time and full disk utilization.
+Impact:
+All dependent APIs failed with 500 errors. The frontend was inaccessible for 17 minutes. Around 2,300 user sessions were impacted.
+Root Cause:
+A nightly ETL job wrote excessive temporary data to /tmp, filling up the disk volume.
+Monitoring failed to trigger timely alerts due to misconfigured CloudWatch thresholds.
+Resolution Steps:
+1. Cleared temporary files from /tmp.
+2. Increased disk size from 100GB to 200GB.
+3. Optimized ETL job to use S3 as temp storage.
+Preventive Measures:
+- Set CloudWatch alarms at 70% and 85% disk usage.
+- Introduced daily cleanup cron job.
+- Reviewed ETL design for long-term scalability.
+Keywords: database outage, disk full, ETL, RDS, I/O, monitoring, downtime

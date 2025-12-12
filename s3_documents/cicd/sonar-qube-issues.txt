@@ -1,0 +1,17 @@
+Incident Title: Sonarqube Issues
+Date: 2025-10-26
+Region: US-East-1
+Service: Sonarqube issues
+Problem Summary:
+Sonarqube stage failing all of a sudden for all the applications in the jenkins
+Impact:
+Entire development team across XYZ company got impacted 
+Root Cause:
+Security team blocked one of the vulnerable package as a result entire PR, Build pipelines started failing. 
+Resolution Steps:
+1. Fix the librabry log4j 
+2. Update the librabry to lastest versions
+3. Test it locally then raise a PR 
+Preventive Measures:
+- Ensure that all open source libraries are up to date as per the market trend 
+Keywords: cicd, sonarqube, sonar, pipelines, stages, pr, build

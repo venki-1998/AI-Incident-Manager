@@ -1,0 +1,30 @@
+groups:
+  - name: example-alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: node_cpu_seconds_total{mode="system"} > 90
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High CPU Usage detected"
+          description: "CPU usage has been above 90% for 1 minute"
+  - name: postgres_alerts
+    rules:
+      - alert: PostgresDown
+        expr: pg_up == 0
+        for: 10s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Postgres is down"
+          description: "Postgres service is not responding for the last 10 seconds"
+
+      - alert: DatabaseDown
+        expr: up{job="database"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Database down"
+          description: "The database service is not responding"
