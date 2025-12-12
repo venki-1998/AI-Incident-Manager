@@ -1,0 +1,18 @@
+Incident Title: Backend Memory Leak
+Date: 2025-10-18
+Region: EU-Central-1
+Service: Python FastAPI microservice
+Problem Summary:
+Memory usage gradually increased, eventually leading to OOM kill by Kubernetes.
+Impact:
+Service restart every 6 hours, minor request failures during restart windows.
+Root Cause:
+Unreleased database cursor connections in a long-running batch job.
+Resolution Steps:
+1. Implemented connection pooling and explicit close() for all cursors.
+2. Added Prometheus memory metrics and alerts.
+3. Rebuilt container image with smaller base footprint.
+Preventive Measures:
+- Added regression tests for memory growth.
+- Scheduled weekly code quality checks.
+Keywords: memory leak, backend, FastAPI, Kubernetes, OOM, monitoring, Postgres

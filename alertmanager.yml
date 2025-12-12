@@ -1,0 +1,15 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  receiver: 'rag-service-webhook'
+  group_by: ['alertname', 'instance']
+  group_wait: 30s
+  group_interval: 1m
+  repeat_interval: 3m   # repeated alerts every 3 minutes
+
+receivers:
+  - name: 'rag-service-webhook'
+    webhook_configs:
+      - url: "http://rag-service:8081/alert"
+        send_resolved: true   # <--- This ensures you get a final 'resolved' POST

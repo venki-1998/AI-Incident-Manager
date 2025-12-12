@@ -1,0 +1,18 @@
+Incident Title: Frontend Latency and Slow Page Loads
+Date: 2025-10-03
+Region: AP-South-1
+Service: React Frontend, CloudFront
+Problem Summary:
+Customers experienced slow page load times (>10s) and partial rendering failures.
+Impact:
+User experience degraded for 60% of sessions, primarily in India and Singapore regions.
+Root Cause:
+A new frontend build introduced large JavaScript bundles (~12MB) due to unoptimized dependencies.
+Resolution Steps:
+1. Split bundles using code-splitting.
+2. Enabled CloudFront compression (gzip and brotli).
+3. Reduced third-party dependencies.
+Preventive Measures:
+- Added Lighthouse CI performance monitoring in CI/CD pipeline.
+- Scheduled periodic performance audits.
+Keywords: latency, frontend, performance, CloudFront, React, bundles, compression

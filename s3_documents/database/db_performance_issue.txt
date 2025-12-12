@@ -1,0 +1,18 @@
+Incident Title: Database Performance Degradation
+Date: 2025-10-22
+Region: US-East-1
+Service: MySQL Aurora
+Problem Summary:
+Read queries exhibited a 3x latency increase.
+Impact:
+High response time for API calls dependent on database reads.
+Root Cause:
+Inefficient index usage after schema update caused full table scans.
+Resolution Steps:
+1. Added missing indexes.
+2. Updated query optimizer statistics.
+3. Scaled up read replicas temporarily.
+Preventive Measures:
+- Automated query plan analyzer integrated into CI.
+- Implemented daily slow query review job.
+Keywords: performance, MySQL, Aurora, indexing, slow query, latency
