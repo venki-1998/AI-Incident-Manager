@@ -63,8 +63,8 @@ The system consists of the following services running via **Docker Compose**:
 
 Clone the repository
 
-git clone https://github.com/shan5a6/langchain-ai-incident-manager.git
-cd langchain-ai-incident-monitor
+git clone https://github.com/venki-1998/AI-Incident-Manager.git
+cd AI-Incident-Manager
 
 
 Start all services using Docker Compose
