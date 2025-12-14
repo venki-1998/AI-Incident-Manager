@@ -46,7 +46,7 @@ The system consists of the following services running via **Docker Compose**:
     HF_API_TOKEN=          # optional if you use HF Inference API (not required for local sentence-transformers)
 
     # Groq
-    GROQ_API_KEY="LsP8otqH3hjIb"
+    GROQ_API_KEY="LsP8otqH3hXXXXXXXXXX"
     GROQ_API_URL=https://api.groq.ai/v1   # keep default unless you have another endpoint
     GROQ_MODEL="llama-3.3-70b-versatile"
 
